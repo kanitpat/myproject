@@ -47,7 +47,6 @@ padding : 50px 0;
 
 @section('content')
 <div class="login-block" >
-@include('layouts.partials.flash-message')
 
     <div class="container">
 	<div class="row">

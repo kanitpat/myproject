@@ -23,6 +23,23 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         //dd($request); exit;
+
+        request()->validate([
+          
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+           
+          
+
+
+        ], [  //change alet defult
+            'name.required' => 'Name is required',
+            'name.max' => 'Name should not be greater than 50 characters.',
+            'password.min' => 'Password must be at least 6 characters.',
+
+        ]);
+
+
         $credentials = $request->only('email', 'password');
        //dd($credentials); exit;
         if (Auth::attempt($credentials)) {
