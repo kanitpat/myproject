@@ -1,5 +1,6 @@
 
     <!-- <a href="{{ url('/home') }}">Home</a> -->
+
 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
   <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
     <a class="nav-link" href="{{URL::to ('home')}}">
@@ -15,21 +16,16 @@
     </a>
   </li>
 
- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+@if (Route::has('admin/home'))
+<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+    <a class="nav-link "  href="#collapseComponents" >
       <i class="fa fa-fw fa-wrench"></i>
       <span class="nav-link-text">Components</span>
     </a>
-    <ul class="sidenav-second-level collapse" id="collapseComponents">
-      <li>
-        <a href="navbar.html">Navbar</a>
-      </li>
-      <li>
-        <a href="cards.html">Cards</a>
-      </li>
-    </ul>
+   
   </li>
-  
+@endif
+
 </ul>
 
 

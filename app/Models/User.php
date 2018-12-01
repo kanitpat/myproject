@@ -14,13 +14,21 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\process_status');
     }
 
-    public function isAdmin()
+    public function is_Admin()
     {
-        return $this->admin; // this looks for an admin column in your users table
+        if($this->admin)
+        {
+            return true; 
+        }
+        return false; 
+
     }
 
 
     use Notifiable;
+
+    protected $guard = 'admin';
+
      // use AuthenticableTrait;
 /**
      * The attributes that are mass assignable.

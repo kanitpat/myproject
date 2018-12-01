@@ -16,19 +16,19 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('admin'),
             'name' => ('admin'),  
             'lastname' => ('JKS'),
-            'is_admin' => 'Yes'],
+            'admin' => '1'],
           
             ['email' => 'jim@hotmail.com', 
             'password' => bcrypt('1234'),
             'name' => ('คณิตพัฒน์'),  
             'lastname' => ('ทรงวัฒนา'),
-            'is_admin' => 'No'],
+            'admin' => '0'],
            
             ['email' => 'hot@hotmail.com', 
             'password' => bcrypt('1234'),
             'name' => ('hot'),  
             'lastname' => ('MukMuk'),
-            'is_admin' => 'No'],
+            'admin' => '0'],
             ]);
     }
 }

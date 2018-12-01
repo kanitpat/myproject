@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('lastname',50);
             $table->rememberToken();
             $table->string('api_token', 60)->unique()->nullable();
-            $table->string('is_admin')->nullable();
+            $table->boolean('admin')->default(0);
 
             $table->timestamps();
         });

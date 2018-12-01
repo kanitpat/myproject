@@ -64,7 +64,7 @@ $url = url('');
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-
+ 
     <!-- #################### headers/top Start #################### -->
     @include('admin.footers.footer')
     <!-- #################### headers/top Start #################### -->

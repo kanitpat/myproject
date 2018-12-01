@@ -39,20 +39,36 @@ class LoginController extends Controller
 
         ]);
      
-      
+            if(Auth::attempt([
+                'email'=> $request->email, 
+                'password'=> $request->password
+            ]))
 
-        $credentials = $request->only('email', 'password');
-       //dd($credentials); exit;
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            // Get the currently authenticated user...
-            //$user = Auth::user();        
-                return redirect('home');
+            {
+                $user = UserMod::where('email',$request->email)->first();
+                if($user->is_admin())
+                {
+                    return redirect('admin/home');
+
+                }
+                    return redirect('home');
+
+            }
+            redirect()->back();
+
+    //     $credentials = $request->only('email', 'password');
+    //    //dd($credentials); exit;
+    //     if (Auth::attempt($credentials)) {
+    //         // Authentication passed...
+    //         // Get the currently authenticated user...
+    //         //$user = Auth::user();   
+          
+    //             return redirect('home');
     
-        } else {
-            return redirect('login')
-                        ->with('error', 'Invalid User Or Password.');
-        }
+    //     } else {
+    //         return redirect('login')
+    //                     ->with('error', 'Invalid User Or Password.');
+    //     }
     }
 
     public function logout()

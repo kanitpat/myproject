@@ -10,20 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Auth::route();
+
+
 Route::get('login', 'LoginController@index');
 Route::post('login', 'LoginController@authenticate');
 Route::get('logout', 'LoginController@logout');
 Route::get('/', 'LoginController@index');
-Route::get('home', 'HomeController@index');
+// Route::get('/admin', 'Admin\AdminController@index');
+
+Route::group( ['middleware' => 'auth'], function() {
+//    Route::get('Admin\AdminController@admin');
 Route::get('chart', 'ChartsController@index');
-Route::get('admin', 'Admin\AdminController@index');
+Route::get('home', 'HomeController@index');
+Route::get('admin/home', 'HomeController@index');
 
+// Route::get('admin/home', 'Admin\HomeAdminController@index');
 
-// Route::group(['prefix' => 'admin', 'middleware' => array('auth','admin'), 'namespace' => 'Admin'], function (){
-// 		Route::get('/', function()
-// 		{
-// 			return View('homeadmin');
-//	
+}); 
+
 Route::resource('users', 'UserController');//สมัคร
 
 // Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
