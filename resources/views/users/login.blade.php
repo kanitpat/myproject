@@ -64,6 +64,9 @@ padding : 50px 0;
   <div class="form-group">
     <label for="exampleInputPassword1" class="text-uppercase">Password</label>
     <input type="password" class="form-control" placeholder="Enter Password" name="password" required >
+    @if ($errors->has('password'))
+        <span class="text-danger">{{ $errors->first('password') }}</span>
+    @endif 
   </div>
   
   
