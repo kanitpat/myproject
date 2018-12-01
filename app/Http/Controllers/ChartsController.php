@@ -16,12 +16,12 @@ class ChartsController extends Controller
     {
         // $water = WaterMod::where(DB::raw("(DATE_FORMAT(date,'%Y'))"),date('Y'))->get();
 
-        // $chart = Charts::database($water, 'line', 'highcharts')
+        // $line_chart = Charts::database(WaterMod::all(), 'line', 'highcharts')
 		// 	      ->title("กราฟแสดงระดับน้ำในสวน")
 		// 	      ->elementLabel("ระดับน้ำในสวน(เมตร)")
 		// 	      ->dimensions(1000, 500)
 		// 	      ->responsive(true)
-		// 	      ->groupByMonth(date('Y'), true);
+		// 	      ->groupByDay();
 
         $line_chart = Charts::create('line', 'highcharts')
                   ->title('กราฟแสดงระดับน้ำในสวน')

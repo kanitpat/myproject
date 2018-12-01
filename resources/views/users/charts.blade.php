@@ -29,9 +29,8 @@
 
 <div class="card">
 {!! $line_chart->render() !!}
-<br/>
-
 </div>
- 
+ <br/>
+
 
 @endsection

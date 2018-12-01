@@ -25,8 +25,6 @@ class HomeController extends Controller
 
         $process_status_all = process_status ::orderBy('id','desc')->paginate(10);
               
-        
-        
         // dd($process_status_all); exit;
 
         // ::orderBy('idProcess','desc')->paginate(10);

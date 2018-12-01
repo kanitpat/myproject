@@ -72,7 +72,7 @@ class UserController extends Controller
         // $mod->is_admin = 'No';    
         $mod->save();
 
-        return redirect('users')
+        return redirect('home')
                     ->with('success', 'User ['.$request->email.'] created successfully.');
 
     }
