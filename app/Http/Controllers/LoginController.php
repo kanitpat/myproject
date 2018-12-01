@@ -38,18 +38,17 @@ class LoginController extends Controller
             'password.min' => 'Password must be at least 6 characters.',
 
         ]);
-
+     
+      
 
         $credentials = $request->only('email', 'password');
        //dd($credentials); exit;
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             // Get the currently authenticated user...
-            //$user = Auth::user();
+            //$user = Auth::user();        
+                return redirect('home');
     
-        
-            return redirect('home');
-
         } else {
             return redirect('login')
                         ->with('error', 'Invalid User Or Password.');

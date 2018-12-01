@@ -16,10 +16,8 @@ Route::get('logout', 'LoginController@logout');
 Route::get('/', 'LoginController@index');
 Route::get('home', 'HomeController@index');
 Route::get('chart', 'ChartsController@index');
+Route::get('admin', 'Admin\AdminController@index');
 
-Route::get('/admin', 'AdminController@admin')    
-    ->middleware('is_admin')    
-    ->name('admin');
 
 // Route::group(['prefix' => 'admin', 'middleware' => array('auth','admin'), 'namespace' => 'Admin'], function (){
 // 		Route::get('/', function()
@@ -28,8 +26,7 @@ Route::get('/admin', 'AdminController@admin')
 //	
 Route::resource('users', 'UserController');//สมัคร
 
-// Route::middleware('auth')->group(function () {
-//     // Route::resource('user', 'Admin\UsersController');
-    
+// Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+//     Route::get('Admin\AdminController@admin');
 
-//  });	
+// }]); 

@@ -16,18 +16,11 @@
   </li>
 
   <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+    <a class="nav-link "  href="#collapseComponents" >
       <i class="fa fa-fw fa-wrench"></i>
       <span class="nav-link-text">Components</span>
     </a>
-    <ul class="sidenav-second-level collapse" id="collapseComponents">
-      <li>
-        <a href="navbar.html">Navbar</a>
-      </li>
-      <li>
-        <a href="cards.html">Cards</a>
-      </li>
-    </ul>
+   
   </li>
 </ul>
 
