@@ -20,10 +20,11 @@ Route::get('/', 'LoginController@index');
 // Route::get('/admin', 'Admin\AdminController@index');
 
 Route::group( ['middleware' => 'auth'], function() {
-//    Route::get('Admin\AdminController@admin');
 Route::get('chart', 'ChartsController@index');
 Route::get('home', 'HomeController@index')->name('home');
-Route::get('admin/home', 'Admin\HomeAdminController@index')->name('admin/home');
+
+
+Route::get('admin/home', 'Admin\HomeAdminController@index');
 Route::get('admin/chart', 'ChartsController@index');
 
 // Route::get('admin/home', 'Admin\HomeAdminController@index');
