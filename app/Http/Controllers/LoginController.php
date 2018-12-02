@@ -48,11 +48,13 @@ class LoginController extends Controller
                 $user = UserMod::where('email',$request->email)->first();
                 if($user->is_admin())
                 {
-                    return redirect('admin/home');
-                    ;
+                    return redirect('admin/home')
+                    ->with('$request->email',$request->email);
 
                 }
-                    return redirect('home');
+                    return redirect('home')  
+                    ->with('$request->email',$request->email);
+                    // dd($credentials); exit;
 
             }
             redirect()->back();

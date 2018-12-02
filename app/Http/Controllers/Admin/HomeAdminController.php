@@ -4,7 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Water as WaterMod ;
+use App\Models\Pump ;
+use App\Models\User ;
 
+use App\Models\Status as StatusMod;
+use App\Models\process_status ;
+
+use Charts;
+use DB;
 class HomeAdminController extends Controller
 {
     /**
@@ -14,7 +22,11 @@ class HomeAdminController extends Controller
      */
     public function index()
     {
-        return view('admin.homeadmin');
+        $water = WaterMod::orderBy('id','desc')->first();
+
+        $process_status_all = process_status ::orderBy('id','desc')->paginate(10);
+        $status = StatusMod::orderBy('id','desc')->first();
+        return view('admin.homeadmin',compact('water','status','process_status_all'));
 
     }
 
