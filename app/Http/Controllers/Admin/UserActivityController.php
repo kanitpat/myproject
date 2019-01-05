@@ -1,20 +1,23 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+use App\Models\userActivity;
+use Illuminate\Http\Request;
+use Auth;
+use Validator;
+use App\Models\User as UserMod;
 use App\Models\Water as WaterMod ;
+use App\Models\userActivity as userActivityMod ;
+
 use App\Models\Pump ;
 use App\Models\User ;
-use App\Models\userActivity ;
 
 use App\Models\Status as StatusMod;
 use App\Models\process_status ;
 
-use Charts;
-use DB;
-class HomeAdminController extends Controller
+class UserActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,13 +27,20 @@ class HomeAdminController extends Controller
     public function index()
     {
         $water = WaterMod::orderBy('id','desc')->first();
-        $user_activitiesall = userActivity::orderBy('id','desc')->paginate(10);
 
         $process_status_all = process_status ::orderBy('id','desc')->paginate(10);
         $status = StatusMod::orderBy('id','desc')->first();
-        return view('admin.homecontent',compact('water','status','process_status_all','user_activitiesall'));
+        $users_all = UserMod::all();
+        $userActivity_all = userActivityMod::all();
 
-    }
+        //dd($users_all); exit;
+        // $users_by_query = User::where('username','min')->get();
+        // $data = compact('users_all','users_by_query');
+        // return view('users.index',$data);
+
+            return view('admin.activity',compact('users_all','water','status','process_status_all','userActivity_all') );
+
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -56,10 +66,10 @@ class HomeAdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\userActivity  $userActivity
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(userActivity $userActivity)
     {
         //
     }
@@ -67,10 +77,10 @@ class HomeAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\userActivity  $userActivity
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(userActivity $userActivity)
     {
         //
     }
@@ -79,10 +89,10 @@ class HomeAdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\userActivity  $userActivity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, userActivity $userActivity)
     {
         //
     }
@@ -90,10 +100,10 @@ class HomeAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\userActivity  $userActivity
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(userActivity $userActivity)
     {
         //
     }

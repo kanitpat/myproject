@@ -18,7 +18,6 @@
       <i class="fa fa-fw fa-wrench"></i>
       <span class="nav-link-text">Components</span>
     </a>
-    
   </li>
 </ul>
 

@@ -25,7 +25,8 @@ Route::get('home', 'HomeController@index');
 
 
 Route::get('admin/home', 'Admin\HomeAdminController@index');
-Route::get('admin/chart', 'ChartsController@index');
+Route::get('admin/charts', 'Admin\ChartsController@index');
+Route::get('admin/components', 'Admin\UserActivityController@index');
 
 // Route::get('admin/home', 'Admin\HomeAdminController@index');
 

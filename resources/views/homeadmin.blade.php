@@ -16,7 +16,7 @@ $url = url('');
     {{--stylesheet files--}}
     <!-- Bootstrap core CSS-->
     <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-      <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
     <!-- <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -30,6 +30,7 @@ $url = url('');
     <!-- <link href="css/sb-admin.css" rel="stylesheet"> -->
     <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
 
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
     @yield('css')
     {{--javascript files--}}
@@ -65,6 +66,7 @@ $url = url('');
 
       <!-- #################### Main Start #################### -->
       @yield('content')
+
      <!--  <h1>CONTENT BLOCK</h1> -->
       <!-- #################### Main Start #################### -->
 

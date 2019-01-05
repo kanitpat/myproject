@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\userActivity;
 use Illuminate\Http\Request;
-
-class UserActivityController extends Controller
+use App\Http\Controllers\Controller;
+use Charts;
+use DB;
+class ChartsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,14 @@ class UserActivityController extends Controller
      */
     public function index()
     {
-        //
+        $line_chart = Charts::create('line', 'highcharts')
+        ->title('กราฟแสดงระดับน้ำในสวน')
+        ->elementLabel('ระดับน้ำในสวน(เมตร)')
+        ->labels(['2018-11-01', '2018-11-02', '2018-11-03', '2018-11-04', '2018-11-05', '2018-11-06'])
+        ->values([1.5,1.9,1.7, 1.5,1.8,2.0])
+        ->dimensions(1000,500)
+        ->responsive(true);
+        return view('admin.charts',compact('line_chart'));
     }
 
     /**
@@ -41,10 +49,10 @@ class UserActivityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\userActivity  $userActivity
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(userActivity $userActivity)
+    public function show($id)
     {
         //
     }
@@ -52,10 +60,10 @@ class UserActivityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\userActivity  $userActivity
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(userActivity $userActivity)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +72,10 @@ class UserActivityController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\userActivity  $userActivity
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, userActivity $userActivity)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +83,10 @@ class UserActivityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\userActivity  $userActivity
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(userActivity $userActivity)
+    public function destroy($id)
     {
         //
     }
